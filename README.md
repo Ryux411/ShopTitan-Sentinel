@@ -1,6 +1,6 @@
-# ShopTitan Sentinel
+# # ShopTitan Sentinel
 
-A lightweight Windows batch sentinel that automatically detects, monitors and relaunches ShopTitan on Steam or Epic Games to ensure uninterrupted play sessions. Designed to operate discreetly in the background—keeping your game alive 24/7 without revealing its true purpose.
+A lightweight Windows batch sentinel that automatically detects, monitors and relaunches ShopTitan on Steam or Epic Games so you can leave your game running 24/7—whether you’re sleeping, working, or away from your machine—ensuring uninterrupted sessions. Designed to operate discreetly in the background without drawing attention.
 
 ## Features
 
@@ -40,7 +40,9 @@ A lightweight Windows batch sentinel that automatically detects, monitors and re
 5. (Optional) To run on Windows startup with admin privileges:
    - Right-click `shop-monitor.bat` → **Create shortcut**.
    - Right-click the shortcut → **Properties** → **Shortcut** → **Advanced** → check **Run as administrator** → **OK**.
-   - Move the shortcut to `%APPDATA%\Microsoft\Windows\Start Menu\Programs\Startup`.
+   - $1
+
+> If you know anyone else facing the same issue, feel free to share this script.
 
 ## Logging
 
