@@ -33,22 +33,23 @@ A lightweight Windows batch sentinel that automatically detects, monitors and re
 
 ## Usage
 
-1. Open a PowerShell or Command Prompt window.
-2. Navigate to the directory containing `shop-monitor.bat`.
-3. Run:
-   ```powershell
-   .\shop-monitor.bat
-   ```
-4. The console will display real‑time status, uptime and restart actions.
+1. In File Explorer, locate the `shop-monitor.bat` file.
+2. Right-click on `shop-monitor.bat` and choose **Run as administrator**.
+3. Authorise the UAC prompt by clicking **Yes**.
+4. A console window will open, showing live status, uptime and restart counts—do not close this window while monitoring.
+5. (Optional) To run on Windows startup with admin privileges:
+   - Right-click `shop-monitor.bat` → **Create shortcut**.
+   - Right-click the shortcut → **Properties** → **Shortcut** → **Advanced** → check **Run as administrator** → **OK**.
+   - Move the shortcut to `%APPDATA%\Microsoft\Windows\Start Menu\Programs\Startup`.
 
 ## Logging
 
-Each status and action is echoed in the console for easy tracking. No external log files are created by default.
+Each status and action is echoed in the console. No external log files are created by default.
 
 ## Customisation
 
 - Change the **check interval** by editing the `CheckInterval` variable.
-- To add additional actions (e.g., keystrokes after launch), insert PowerShell `SendKeys` commands in the restart logic section.
+- Add extra actions (e.g., keystrokes) by inserting PowerShell `SendKeys` commands in the restart logic section.
 
 ## Contributing
 
