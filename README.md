@@ -54,7 +54,8 @@ Each status and action is echoed in the console. No external log files are creat
 ## Contributing
 
 Contributions, issues and feature requests are welcome. Please open an issue or submit a pull request.
-“Know anyone else plagued by unexpected shutdowns? Share this script to keep their game running non‑stop!”
+
+Know anyone else plagued by unexpected shutdowns? Share this script to keep their game running non‑stop!
 
 ## Licence
 
