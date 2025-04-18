@@ -1,8 +1,6 @@
 # ShopTitan Sentinel
 
-A lightweight Windows batch sentinel that automatically detects, monitors and relaunches ShopTitan on Steam or Epic Games if it stops unexpectedly.
-
----
+A lightweight Windows batch sentinel that automatically detects, monitors and relaunches ShopTitan on Steam or Epic Games to ensure uninterrupted play sessions. Designed to operate discreetly in the background—keeping your game alive 24/7 without revealing its true purpose.
 
 ## Features
 
