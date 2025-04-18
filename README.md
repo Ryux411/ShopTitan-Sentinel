@@ -40,9 +40,7 @@ A lightweight Windows batch sentinel that automatically detects, monitors and re
 5. (Optional) To run on Windows startup with admin privileges:
    - Right-click `shop-monitor.bat` → **Create shortcut**.
    - Right-click the shortcut → **Properties** → **Shortcut** → **Advanced** → check **Run as administrator** → **OK**.
-   - $1
-
-> If you know anyone else facing the same issue, feel free to share this script.
+   - Move the shortcut to `%APPDATA%\Microsoft\Windows\Start Menu\Programs\Startup`.
 
 ## Logging
 
@@ -56,6 +54,7 @@ Each status and action is echoed in the console. No external log files are creat
 ## Contributing
 
 Contributions, issues and feature requests are welcome. Please open an issue or submit a pull request.
+“Know anyone else plagued by unexpected shutdowns? Share this script to keep their game running non‑stop!”
 
 ## Licence
 
