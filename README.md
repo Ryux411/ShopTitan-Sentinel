@@ -25,22 +25,22 @@ A lightweight Windows batch watchdog that automatically detects, monitors, and r
    ```powershell
    git clone https://github.com/Ryux411/ShopTitan-Sentinel.git
    ```
-2. Place the `shop-monitor.bat` script in any folder you prefer.
+2. Place the `st-watchdog.bat` script in any folder you prefer.
 
 ## Configuration
 
-- **Script name:** `shop-monitor.bat`
+- **Script name:** `st-watchdog.bat`
 - **Interval:** Modify `CheckInterval` variable inside the script (default: 1 second).
 - **AppID:** For Steam launches, replace the placeholder AppID (`1258080`) with the actual ShopTitans AppID in the script.
 
 ## Usage
 
-1. In File Explorer, locate the `shop-monitor.bat` file.
-2. Right-click on `shop-monitor.bat` and choose **Run as administrator**.
+1. In File Explorer, locate the `st-watchdog.bat` file.
+2. Right-click on `st-watchdog.bat` and choose **Run as administrator**.
 3. Authorise the UAC prompt by clicking **Yes**.
 4. A console window will open, showing live status, uptime and restart counts—do not close this window while monitoring.
 5. (Optional) To run on Windows startup with admin privileges:
-   - Right-click `shop-monitor.bat` → **Create shortcut**.
+   - Right-click `st-watchdog.bat` → **Create shortcut**.
    - Right-click the shortcut → **Properties** → **Shortcut** → **Advanced** → check **Run as administrator** → **OK**.
    - Move the shortcut to `%APPDATA%\Microsoft\Windows\Start Menu\Programs\Startup`.
 
