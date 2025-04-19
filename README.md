@@ -1,21 +1,23 @@
-# # ShopTitan Sentinel
+# ShopTitans Sentinel
 
-A lightweight Windows batch sentinel that automatically detects, monitors and relaunches ShopTitan on Steam or Epic Games so you can leave your game running 24/7—whether you’re sleeping, working, or away from your machine—ensuring uninterrupted sessions. Designed to operate discreetly in the background without drawing attention.
+A lightweight Windows batch sentinel that automatically detects, monitors, and relaunches ShopTitans on Steam or Epic Games, enabling uninterrupted sessions so you can leave your game running 24/7—whether you’re sleeping, working, or away from your machine. Designed to operate discreetly in the background without drawing attention.
+
+**Note:** This script is **not** a game bot or automation tool. It only ensures the game stays open and running.
 
 ## Features
 
-- **Auto‑detects** game installation on Steam (including secondary libraries) or Epic Games.
-- **Real‑time monitoring** of the `ShopTitan.exe` process.
+- **Auto-detects** game installation on Steam (including secondary libraries) or Epic Games.
+- **Real-time monitoring** of the `ShopTitans.exe` process.
 - **Automatic restart** via Steam or direct executable launch.
 - **Uptime tracking** and **restart counter** displayed in console.
 - **Customisable** check interval and launch parameters.
-- **Production‑ready** with concise logging and clear user prompts.
+- **Production-ready** with concise logging and clear user prompts.
 
 ## Requirements
 
 - Windows 10 or later
 - Batch (CMD) environment
-- ShopTitan installed via Steam or Epic Games
+- ShopTitans installed via Steam or Epic Games
 
 ## Installation
 
@@ -29,7 +31,7 @@ A lightweight Windows batch sentinel that automatically detects, monitors and re
 
 - **Script name:** `shop-monitor.bat`
 - **Interval:** Modify `CheckInterval` variable inside the script (default: 1 second).
-- **AppID:** For Steam launches, replace the placeholder AppID (`1258080`) with the actual ShopTitan AppID in the script.
+- **AppID:** For Steam launches, replace the placeholder AppID (`1258080`) with the actual ShopTitans AppID in the script.
 
 ## Usage
 
@@ -53,11 +55,10 @@ Each status and action is echoed in the console. No external log files are creat
 
 ## Contributing
 
-Contributions, issues and feature requests are welcome. Please open an issue or submit a pull request.
+Contributions, issues, and feature requests are welcome. Please open an issue or submit a pull request.
 
-Know anyone else plagued by unexpected shutdowns? Share this script to keep their game running non‑stop!
+Know anyone else plagued by unexpected shutdowns? Share this script to keep their game running non-stop!
 
 ## Licence
 
 MIT © CyberNinja
-
