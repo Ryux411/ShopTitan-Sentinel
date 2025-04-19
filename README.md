@@ -27,12 +27,6 @@ A lightweight Windows batch watchdog that automatically detects, monitors, and r
    ```
 2. Place the `st-watchdog.bat` script in any folder you prefer.
 
-## Configuration
-
-- **Script name:** `st-watchdog.bat`
-- **Interval:** Modify `CheckInterval` variable inside the script (default: 1 second).
-- **AppID:** For Steam launches, replace the placeholder AppID (`1258080`) with the actual ShopTitans AppID in the script.
-
 ## Usage
 
 1. In File Explorer, locate the `st-watchdog.bat` file.
