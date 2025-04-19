@@ -22,8 +22,8 @@ A lightweight Windows batch watchdog that automatically detects, monitors, and r
 ## Installation
 
 1. Clone or download this repository:
-   ```powershell
-   git clone https://github.com/Ryux411/ShopTitans-Watchdog
+   ```
+   git clone https://github.com/Ryux411/ShopTitans-Watchdog.git
    ```
 2. Place the `st-watchdog.bat` script in any folder you prefer.
 
