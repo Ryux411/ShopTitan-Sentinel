@@ -1,9 +1,9 @@
 # ShopTitans Watchdog
 
 A lightweight Windows batch watchdog that automatically detects, monitors, and relaunches ShopTitans on Steam or Epic Games, enabling uninterrupted sessions so you can leave your game running 24/7—whether you’re sleeping, working, or away from your machine. Designed to operate discreetly in the background without drawing attention.
-```
+
 **Note:** This script is not a game bot or automation tool, though it can be used alongside one. It only ensures the game stays open and running.
-```
+
 ## Features
 
 - **Auto-detects** game installation on Steam (including secondary libraries) or Epic Games.
