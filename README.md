@@ -23,7 +23,7 @@ A lightweight Windows batch watchdog that automatically detects, monitors, and r
 
 1. Clone or download this repository:
    ```powershell
-   git clone https://github.com/Ryux411/ShopTitan-Sentinel.git
+   git clone https://github.com/Ryux411/ShopTitans-Watchdog
    ```
 2. Place the `st-watchdog.bat` script in any folder you prefer.
 
