@@ -38,7 +38,7 @@ IF /I "%Platform%"=="Steam" (
 
 CLS
 ECHO ============================================
-ECHO =  ShopTitan Sentinel Monitor              =
+ECHO =  ShopTitans-Watchdog                       =
 ECHO =  Created by CyberNinja                   =
 ECHO =  Monitoring every %CheckInterval% sec     =
 ECHO =  Platform   : %Platform%                 =
@@ -58,7 +58,7 @@ IF %hh% LSS 10 (SET hh=0%hh%) & IF %mm% LSS 10 (SET mm=0%mm%) & IF %ss% LSS 10 (
 
 CLS
 ECHO ============================================
-ECHO =  ShopTitan Sentinel Monitor              =
+ECHO =  ShopTitans-Watchdog                      =
 ECHO =  Status     : %currState%                =
 ECHO =  Uptime     : %hh%:%mm%:%ss%             =
 ECHO =  Restarts   : %restartCount%             =
