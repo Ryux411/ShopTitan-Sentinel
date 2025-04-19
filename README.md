@@ -44,10 +44,6 @@ A lightweight Windows batch watchdog that automatically detects, monitors, and r
    - Right-click the shortcut → **Properties** → **Shortcut** → **Advanced** → check **Run as administrator** → **OK**.
    - Move the shortcut to `%APPDATA%\Microsoft\Windows\Start Menu\Programs\Startup`.
 
-## Logging
-
-Each status and action is echoed in the console. No external log files are created by default.
-
 ## Contributing
 
 Contributions, issues, and feature requests are welcome. Please open an issue or submit a pull request.
