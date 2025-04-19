@@ -48,11 +48,6 @@ A lightweight Windows batch watchdog that automatically detects, monitors, and r
 
 Each status and action is echoed in the console. No external log files are created by default.
 
-## Customisation
-
-- Change the **check interval** by editing the `CheckInterval` variable.
-- Add extra actions (e.g., keystrokes) by inserting PowerShell `SendKeys` commands in the restart logic section.
-
 ## Contributing
 
 Contributions, issues, and feature requests are welcome. Please open an issue or submit a pull request.
