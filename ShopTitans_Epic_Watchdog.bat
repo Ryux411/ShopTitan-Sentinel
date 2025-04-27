@@ -89,23 +89,33 @@ IF "%currState%"=="NOT_RUNNING" (
     SET /A launchRetryCount+=1
     ECHO Attempt #%launchRetryCount% to launch Shop Titans
     START "" "%LaunchURL%"
-    TIMEOUT /T 15 /NOBREAK >NUL
+    TIMEOUT /T 10 /NOBREAK >NUL
 
-    IF %launchRetryCount% GEQ %MaxRetries% (
-        CLS
-        ECHO =====================================================
-        ECHO WARNING: Could not auto-launch Shop Titans after %MaxRetries% attempts.
-        ECHO You must manually open Shop Titans in Epic Games now.
-        ECHO Waiting for manual launch...
-        ECHO =====================================================
-        :waitmanual
-        TASKLIST /FI "IMAGENAME eq %EXEName%" /NH | FINDSTR /I "%EXEName%" >NUL
-        IF ERRORLEVEL 1 (
+    REM Immediately check if game started manually
+    TASKLIST /FI "IMAGENAME eq %EXEName%" /NH | FINDSTR /I "%EXEName%" >NUL
+    IF ERRORLEVEL 1 (
+        REM Game still not running
+        IF %launchRetryCount% GEQ %MaxRetries% (
+            CLS
+            ECHO =====================================================
+            ECHO WARNING: Could not auto-launch Shop Titans after %MaxRetries% attempts.
+            ECHO You must manually open Shop Titans in Epic Games now.
+            ECHO Waiting for manual launch...
+            ECHO =====================================================
+            :waitmanual
+            TASKLIST /FI "IMAGENAME eq %EXEName%" /NH | FINDSTR /I "%EXEName%" >NUL
+            IF ERRORLEVEL 1 (
+                TIMEOUT /T 5 /NOBREAK >NUL
+                GOTO waitmanual
+            )
+            SET launchRetryCount=0
+            ECHO Manual launch detected, resuming watchdog...
             TIMEOUT /T 5 /NOBREAK >NUL
-            GOTO waitmanual
         )
+    ) ELSE (
+        REM Game started manually during retries
+        ECHO Manual launch detected during attempts, resuming watchdog...
         SET launchRetryCount=0
-        ECHO Manual launch detected, resuming watchdog...
         TIMEOUT /T 5 /NOBREAK >NUL
     )
 ) ELSE (
