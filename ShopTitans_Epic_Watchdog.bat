@@ -10,13 +10,7 @@ SET "CheckInterval=1"
 
 FOR %%D IN (C D E F G H I J K L M N O P Q R S T U V W X Y Z) DO (
     IF NOT DEFINED GameDir (
-        IF EXIST "%%D:\SteamLibrary\steamapps\common\%BaseName%\%EXEName%" (
-            SET "GameDir=%%D:\SteamLibrary\steamapps\common\%BaseName%"
-            SET "Platform=Steam"
-        ) ELSE IF EXIST "%%D:\Program Files (x86)\Steam\steamapps\common\%BaseName%\%EXEName%" (
-            SET "GameDir=%%D:\Program Files (x86)\Steam\steamapps\common\%BaseName%"
-            SET "Platform=Steam"
-        ) ELSE IF EXIST "%%D:\Program Files\Epic Games\%BaseName%\%EXEName%" (
+        IF EXIST "%%D:\Program Files\Epic Games\%BaseName%\%EXEName%" (
             SET "GameDir=%%D:\Program Files\Epic Games\%BaseName%"
             SET "Platform=Epic"
         )
@@ -28,17 +22,12 @@ IF NOT DEFINED GameDir (
     EXIT /B 1
 )
 
-IF /I "%Platform%"=="Steam" (
-    SET "Launcher=%ProgramFiles(x86)%\Steam\steam.exe"
-    SET "LaunchArgs=-applaunch 1258080"
-) ELSE (
-    SET "Launcher=%GameDir%\%EXEName%"
-    SET "LaunchArgs="
-)
+SET "Launcher=%ProgramFiles(x86)%\Epic Games\Launcher\Portal\Binaries\Win32\EpicGamesLauncher.exe"
+SET "LaunchArgs=com.epicgames.launcher://apps/Coral?action=launch&silent=true"
 
 CLS
 ECHO ============================================
-ECHO =  ShopTitans-Watchdog                       =
+ECHO =  ShopTitans-Watchdog                      =
 ECHO =  Created by CyberNinja                   =
 ECHO =  Monitoring every %CheckInterval% sec     =
 ECHO =  Platform   : %Platform%                 =
@@ -70,13 +59,13 @@ ECHO Timestamp : %DATE% %TIME%
 IF "%currState%"=="NOT_RUNNING" (
     SET /A restartCount+=1
     ECHO Action : Restarting via %Platform%...
-    START "" "%Launcher%" %LaunchArgs%
+    START "" "%Launcher%" "%LaunchArgs%"
     TIMEOUT /T 5 /NOBREAK >NUL
 ) ELSE (
     IF "%prevState%"=="NOT_RUNNING" (
         ECHO Action : Detected new session
     ) ELSE (
-        ECHO Action : No action – running
+        ECHO Action : No action â€“ running
     )
 )
 
