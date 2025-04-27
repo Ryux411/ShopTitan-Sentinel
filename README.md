@@ -8,7 +8,7 @@ A lightweight Windows batch watchdog that automatically detects, monitors, and r
 
 - **Auto-detects** game installation on Steam (including secondary libraries) or Epic Games.
 - **Real-time monitoring** of the `ShopTitans.exe` process.
-- **Automatic restart** via Steam or direct executable launch.
+- **Automatic restart** via Steam or Epic Games Launcher.
 - **Uptime tracking** and **restart counter** displayed in console.
 - **Customisable** check interval and launch parameters.
 - **Production-ready** with concise logging and clear user prompts.
@@ -25,16 +25,21 @@ A lightweight Windows batch watchdog that automatically detects, monitors, and r
    ```
    git clone https://github.com/Ryux411/ShopTitans-Watchdog.git
    ```
-2. Place the `st-watchdog.bat` script in any folder you prefer.
+2. Choose the correct script based on your platform:
+   - For Steam: `ShopTitans_Steam_Watchdog.bat`
+   - For Epic Games: `ShopTitans_Epic_Watchdog.bat`
+3. Place the script in any folder you prefer.
 
 ## Usage
 
-1. In File Explorer, locate the `st-watchdog.bat` file.
-2. Right-click on `st-watchdog.bat` and choose **Run as administrator**.
+1. In File Explorer, locate the script for your platform:
+   - **Steam:** `ShopTitans_Steam_Watchdog.bat`
+   - **Epic Games:** `ShopTitans_Epic_Watchdog.bat`
+2. Right-click the batch file and choose **Run as administrator**.
 3. Authorise the UAC prompt by clicking **Yes**.
-4. A console window will open, showing live status, uptime and restart counts—do not close this window while monitoring.
+4. A console window will open, showing live status, uptime, and restart counts—do not close this window while monitoring.
 5. (Optional) To run on Windows startup with admin privileges:
-   - Right-click `st-watchdog.bat` → **Create shortcut**.
+   - Right-click the script → **Create shortcut**.
    - Right-click the shortcut → **Properties** → **Shortcut** → **Advanced** → check **Run as administrator** → **OK**.
    - Move the shortcut to `%APPDATA%\Microsoft\Windows\Start Menu\Programs\Startup`.
 
@@ -47,4 +52,12 @@ Know anyone else plagued by unexpected shutdowns? Share this script to keep thei
 ## Licence
 
 MIT © CyberNinja
+
+---
+
+**Changes made:**
+- Updated script filenames: `ShopTitans_Steam_Watchdog.bat`, `ShopTitans_Epic_Watchdog.bat`
+- Updated usage section to match Steam and Epic split
+- Corrected "direct executable" to "Epic Games Launcher" launching
+- Clean, fast, no unnecessary filler
 
