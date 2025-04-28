@@ -8,6 +8,7 @@ SET "prevState=UNKNOWN"
 SET /A sessionSeconds=0, restartCount=0, launchRetryCount=0
 SET "CheckInterval=1"
 SET "MaxRetries=20"
+SET "ManualMode=0"
 
 FOR %%D IN (C D E F G H I J K L M N O P Q R S T U V W X Y Z) DO (
     IF NOT DEFINED GameDir (
@@ -49,6 +50,7 @@ IF ERRORLEVEL 1 (
 IF "%currState%"=="RUNNING" (
     SET /A sessionSeconds+=CheckInterval
     SET launchRetryCount=0
+    SET ManualMode=0
 ) ELSE (
     SET sessionSeconds=0
 )
@@ -68,13 +70,18 @@ ECHO Restarts   : %restartCount%
 ECHO Platform   : %Platform%
 ECHO Directory  : %GameDir%
 ECHO LaunchAttempts: %launchRetryCount%
+ECHO ManualMode : %ManualMode%
 ECHO ============================================
 ECHO Timestamp : %DATE% %TIME%
 
 IF "%currState%"=="NOT_RUNNING" (
+    IF "%ManualMode%"=="1" (
+        GOTO waitmanual
+    )
+
     IF %launchRetryCount% EQU 0 (
         SET /A restartCount+=1
-        ECHO Epic Games Launcher check...
+        ECHO Checking Epic Games Launcher...
 
         TASKLIST /FI "IMAGENAME eq EpicGamesLauncher.exe" /NH | FINDSTR /I "EpicGamesLauncher.exe" >NUL
         IF ERRORLEVEL 1 (
@@ -91,41 +98,42 @@ IF "%currState%"=="NOT_RUNNING" (
     START "" "%LaunchURL%"
     TIMEOUT /T 10 /NOBREAK >NUL
 
-    REM Immediately check if game started manually
     TASKLIST /FI "IMAGENAME eq %EXEName%" /NH | FINDSTR /I "%EXEName%" >NUL
     IF ERRORLEVEL 1 (
-        REM Game still not running
         IF %launchRetryCount% GEQ %MaxRetries% (
             CLS
             ECHO =====================================================
-            ECHO WARNING: Could not auto-launch Shop Titans after %MaxRetries% attempts.
-            ECHO You must manually open Shop Titans in Epic Games now.
+            ECHO [MANUAL REQUIRED] Could not auto-launch after %MaxRetries% tries.
+            ECHO Please manually open Shop Titans from Epic Games now.
             ECHO Waiting for manual launch...
             ECHO =====================================================
-            :waitmanual
-            TASKLIST /FI "IMAGENAME eq %EXEName%" /NH | FINDSTR /I "%EXEName%" >NUL
-            IF ERRORLEVEL 1 (
-                TIMEOUT /T 5 /NOBREAK >NUL
-                GOTO waitmanual
-            )
-            SET launchRetryCount=0
-            ECHO Manual launch detected, resuming watchdog...
-            TIMEOUT /T 5 /NOBREAK >NUL
+            SET ManualMode=1
+            GOTO waitmanual
         )
     ) ELSE (
-        REM Game started manually during retries
-        ECHO Manual launch detected during attempts, resuming watchdog...
+        ECHO Game detected during retry. Resuming watchdog...
         SET launchRetryCount=0
-        TIMEOUT /T 5 /NOBREAK >NUL
     )
 ) ELSE (
     IF "%prevState%"=="NOT_RUNNING" (
-        ECHO Action : Detected new session
+        ECHO Detected new session
     ) ELSE (
-        ECHO Action : No action – running
+        ECHO No action needed – running
     )
 )
 
 SET "prevState=%currState%"
 TIMEOUT /T %CheckInterval% /NOBREAK >NUL
+GOTO loop
+
+:waitmanual
+TASKLIST /FI "IMAGENAME eq %EXEName%" /NH | FINDSTR /I "%EXEName%" >NUL
+IF ERRORLEVEL 1 (
+    TIMEOUT /T 5 /NOBREAK >NUL
+    GOTO waitmanual
+)
+ECHO Manual launch detected! Resuming watchdog...
+SET ManualMode=0
+SET launchRetryCount=0
+TIMEOUT /T 5 /NOBREAK >NUL
 GOTO loop
